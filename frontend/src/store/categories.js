@@ -34,7 +34,7 @@ export const categoriesModule = {
         async fetchCategories({commit}) {
             try {
                 commit('setLoading', true);
-                const response = await axios.get('http://192.168.0.103/categories');
+                const response = await axios.get('http://backend.ask-me.pp.ua/categories');
                 commit('setCategories', response.data.records)
             } catch (e) {
                 console.log(e)
@@ -47,7 +47,7 @@ export const categoriesModule = {
                 let formData = new FormData();
                 formData.append("title",data)
                 commit('setLoading', true);
-                await axios.post('http://192.168.0.103/categories',formData);
+                await axios.post('http://backend.ask-me.pp.ua/categories',formData);
                 commit("setError","");
                 dispatch("fetchCategories");
             } catch (e) {
@@ -60,7 +60,7 @@ export const categoriesModule = {
         async deleteCategory({commit,dispatch},category_id) {
             try {
                 commit('setLoading', true);
-                await axios.delete(`http://192.168.0.103/categories/${category_id}`,{
+                await axios.delete(`http://backend.ask-me.pp.ua/categories/${category_id}`,{
 
                 });
                 commit("setCategoriesError","");

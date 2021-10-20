@@ -61,7 +61,7 @@ export const userModule = {
         async fetchUsersList(state) {
             try {
                 state.commit('setLoading', true);
-                const response = await axios.get(`http://192.168.0.103/users/`);
+                const response = await axios.get(`http://backend.ask-me.pp.ua/users/`);
                 state.commit('setUsersList', response.data.records)
             } catch (e) {
                 console.log(e);
@@ -76,7 +76,7 @@ export const userModule = {
             formData.append("email",data.email);
             formData.append("password",data.password);
             try {
-                const response = await axios.post('http://192.168.0.103/users/login',formData, {
+                const response = await axios.post('http://backend.ask-me.pp.ua/users/login',formData, {
                     headers: {
                         Accept: 'application/json',
                         'Content-Type': 'multipart/form-data'
@@ -111,7 +111,7 @@ export const userModule = {
             formData.append("image",data.image);
             formData.append("password",data.password);
             try {
-                await axios.post('http://192.168.0.103/users/register',formData, {
+                await axios.post('http://backend.ask-me.pp.ua/users/register',formData, {
                     headers: {
                         Accept: 'application/json',
                         'Content-Type': 'multipart/form-data'
@@ -134,7 +134,7 @@ export const userModule = {
                     commit('setIsAuth',false);
 
                 }else{
-                    const response = await axios.get(`http://192.168.0.103/users/`,{
+                    const response = await axios.get(`http://backend.ask-me.pp.ua/users/`,{
                         params:{
                             validate:jwt
                         }

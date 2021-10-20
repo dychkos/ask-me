@@ -84,7 +84,7 @@ export const questionsModule = {
             try {
                 commit('setLoading', true);
                 commit('setPage',1);
-                const response = await axios.get('http://192.168.0.103/questions', {
+                const response = await axios.get('http://backend.ask-me.pp.ua/questions', {
                     params: {
                         page: 1,
                     }
@@ -99,7 +99,7 @@ export const questionsModule = {
         async loadMoreQuestions({state, commit}) {
             try {
                 commit('setPage', state.page + 1)
-                const response = await axios.get('http://192.168.0.103/questions', {
+                const response = await axios.get('http://backend.ask-me.pp.ua/questions', {
                     params: {
                         page: state.page
                     }
@@ -112,7 +112,7 @@ export const questionsModule = {
         async searchQuestions({state, commit}) {
             commit('setLoading', true);
             try {
-                const response = await axios.get('http://192.168.0.103/questions', {
+                const response = await axios.get('http://backend.ask-me.pp.ua/questions', {
                     params: {
                         search: state.searchQuery
                     }
@@ -129,7 +129,7 @@ export const questionsModule = {
         async fetchQuestionsByCategory({state, commit}) {
             commit('setLoading', true);
             try {
-                const response = await axios.get('http://192.168.0.103/questions', {
+                const response = await axios.get('http://backend.ask-me.pp.ua/questions', {
                     params: {
                         category: state.selectedCategory
                     }
@@ -146,7 +146,7 @@ export const questionsModule = {
         async fetchQuestionsForCurrentUser({commit}) {
             commit('setLoading', true);
             try {
-                const response = await axios.get('http://192.168.0.103/questions', {
+                const response = await axios.get('http://backend.ask-me.pp.ua/questions', {
                     params: {
                         user:  getUID()
                     }
@@ -170,7 +170,7 @@ export const questionsModule = {
             formData.append("isDraft",Number(data.isDraft));
 
             try {
-                 await axios.post('http://192.168.0.103/questions',formData, {
+                 await axios.post('http://backend.ask-me.pp.ua/questions',formData, {
                     headers: {
                         Accept: 'application/json',
                         'Content-Type': 'multipart/form-data'
@@ -187,7 +187,7 @@ export const questionsModule = {
         async removeQuestion(state,question_id) {
             state.commit('setLoading', true);
             try {
-                await axios.delete(`http://192.168.0.103/questions/${question_id}`);
+                await axios.delete(`http://backend.ask-me.pp.ua/questions/${question_id}`);
                 state.dispatch("fetchQuestionsForCurrentUser");
 
             } catch (e) {
@@ -202,7 +202,7 @@ export const questionsModule = {
             let formData = new FormData();
             formData.append("make_public", question_id);
             try {
-               await axios.post('http://192.168.0.103/questions',formData, {
+               await axios.post('http://backend.ask-me.pp.ua/questions',formData, {
                     headers: {
                         Accept: 'application/json',
                         'Content-Type': 'multipart/form-data'

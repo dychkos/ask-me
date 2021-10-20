@@ -38,7 +38,7 @@ export const questionItemModule = {
         async fetchQuestionBody(state,router) {
             try {
                 state.commit('setLoading', true);
-                const response = await axios.get(`http://192.168.0.103//questions/${router}`);
+                const response = await axios.get(`http://backend.ask-me.pp.ua//questions/${router}`);
                 state.commit('setQuestionBody', response.data)
             } catch (e) {
                 console.log(e);
@@ -49,7 +49,7 @@ export const questionItemModule = {
         async fetchAnswers({commit},question_id) {
             try {
                 commit('setLoading', true);
-                const response = await axios.get('http://192.168.0.103//answers', {
+                const response = await axios.get('http://backend.ask-me.pp.ua//answers', {
                     params: {
                         q_id: question_id,
                         u_id: getUID() ?? 0
@@ -73,7 +73,7 @@ export const questionItemModule = {
             formData.append("question_id",data.question_id);
             formData.append("title",data.title);
             try {
-                await axios.post('http://192.168.0.103/answers',formData, {
+                await axios.post('http://backend.ask-me.pp.ua/answers',formData, {
                     headers: {
                         Accept: 'application/json',
                         'Content-Type': 'multipart/form-data'
@@ -97,7 +97,7 @@ export const questionItemModule = {
             formData.append("answer_id",answer.id);
 
             try {
-               await axios.post('http://192.168.0.103//answers/like',formData, {
+               await axios.post('http://backend.ask-me.pp.ua//answers/like',formData, {
                     headers: {
                         Accept: 'application/json',
                         'Content-Type': 'multipart/form-data'
@@ -119,7 +119,7 @@ export const questionItemModule = {
             formData.append("answer_id",answer.id);
 
             try {
-                await axios.post('http://192.168.0.103//answers/unlike',formData, {
+                await axios.post('http://backend.ask-me.pp.ua//answers/unlike',formData, {
                     headers: {
                         Accept: 'application/json',
                         'Content-Type': 'multipart/form-data'

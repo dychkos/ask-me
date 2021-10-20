@@ -22,7 +22,7 @@ export default {
   },
   data() {
     return {
-      backendImageURL: "http://192.168.0.103//uploads/"
+      backendImageURL: "http://backend.ask-me.pp.ua/uploads/"
     }
   },
   methods:{
