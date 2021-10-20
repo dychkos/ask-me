@@ -72,7 +72,8 @@ export default {
         this.errors = [];
         this.errorCheck();
 
-        if(!this.errors){
+
+        if(this.errors.length === 0){
           let data = {
             category_id:this.category,
             title:this.title,

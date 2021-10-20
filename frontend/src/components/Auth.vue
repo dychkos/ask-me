@@ -96,7 +96,7 @@ export default {
   padding: 20px 0;
   width: 140px;
   top:30px;
-  left:-30px;
+  left:-70px;
   background-color: #fff;
   border-radius: 10px;
   z-index: 10;

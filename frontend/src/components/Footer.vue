@@ -20,6 +20,12 @@ export default {
   padding: 40px 0;
 }
 
+@media (max-width: 768px) {
+  .footer p{
+   font-size: 12px;
+  }
+}
+
 .footer .container{
   display: flex;
   align-items: center;
