@@ -149,7 +149,6 @@ export const userModule = {
                 commit('setIsAuth',false);
                 localStorage.removeItem('jwt');
             } finally {
-                commit('setAppReady', true, { root: true })
                 commit('setLoading', false);
             }
         }

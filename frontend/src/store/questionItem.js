@@ -108,7 +108,7 @@ export const questionItemModule = {
             } catch (e) {
                 console.log(e);
             } finally {
-                commit('setLoading', false);
+                commit('setLoading', true);
             }
         },
 
@@ -129,7 +129,7 @@ export const questionItemModule = {
             } catch (e) {
                 console.log(e);
             } finally {
-                commit('setLoading', false);
+                commit('setLoading', true);
             }
         },
 

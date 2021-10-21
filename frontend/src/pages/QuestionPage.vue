@@ -15,7 +15,7 @@
           <add-answer-form v-else @answer="newAnswer"/>
           <Loader v-if="isQuestionPageLoading" />
 
-          <div class="answers-list mt-3">
+          <div v-else class="answers-list mt-3">
             <h4 v-if="question.answersCount>0">{{ question.answersCount }} answers</h4>
             <h4 v-else>No answers</h4>
             <answer-item v-for="answer in answers" :answer="answer" :key="answer.id" @like="likeOrUnlike"></answer-item>
@@ -124,7 +124,10 @@ export default {
   padding: 20px;
 
 }
+
+
 .question-text{
   margin-bottom: 12px;
 }
+
 </style>
